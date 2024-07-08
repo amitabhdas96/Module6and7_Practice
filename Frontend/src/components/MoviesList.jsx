@@ -51,6 +51,40 @@ function MoviesList() {
     //     // <Movie key={movie.id} {...movie}/>
     //     )
     //    );
+
+    function AddMovieForm({onAddMovie}) {
+        const [title, setTitle] = useState('')
+        const [year, setYear] = useState('')
+        // ++ add support for the synopsis field as well, here and below
+        const handleSubmit = (e) => {
+        e.preventDefault();
+         // Creates key-value pair object with form input names/values
+ const data = new FormData(e.target);
+ onAddMovie(Object.fromEntries(data));
+
+        // onAddMovie({title, year})
+        }
+        return (
+        <div className="AddMovieForm componentBox">
+        <form onSubmit={handleSubmit}>
+        <label>Movie Title:
+        <input name="title" value={title}
+        onChange={(e) => setTitle(e.target.value)} />
+        </label>
+        <label>Year Released:
+        <input name="year" type="number" value={year}
+        onChange={(e) => setYear(e.target.value)} />
+        </label> 
+        <button>Add Movie</button> 
+        </form>
+        </div>
+        )
+       }
+       // add this in MoviesList component
+       const handleAddMovie = (newMovie) => {
+        newMovie.id = currentMovies.length + 1; // unreliable but succinct
+        setCurrentMovies([...currentMovies, newMovie])
+       }
         
     const handleReverseMovies = () => { 
         // first clone the original, so we don’t mutate it
@@ -58,14 +92,11 @@ function MoviesList() {
         newMovies.reverse(); // 2. modify the clone
         setCurrentMovies(newMovies); // 3. set updated clone in state
         }
-          
-
-
-
     return (
         <div className="MoviesList">
         <ul>{ movieItems }</ul>
         <button onClick={handleReverseMovies}>Reverse List</button>
+        <AddMovieForm onAddMovie={handleAddMovie}/>
         </div>       
     )
    }

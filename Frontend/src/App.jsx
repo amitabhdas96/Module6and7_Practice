@@ -1,4 +1,8 @@
-{/* Include the below in App.jsx */}
+
+// first do npm install react-error-boundary
+import { ErrorBoundary } from 'react-error-boundary'
+import ErrorMessage from './components/ErrorMessage'
+
 import PropsDisplayer from './components/PropsDisplayer' 
 import City from './components/City' 
 import Pet from './components/Pet' 
@@ -10,6 +14,8 @@ import MoodChanger from './components/MoodChanger'
 import BirthdayTranslator from './components/BirthdayTranslator' 
 import Weather from './components/Weather' 
 import LoginForm from './components/LoginForm'
+import ExplodingBomb from './components/ExplodingBomb'
+
 
 
 import { useState } from 'react'
@@ -90,6 +96,8 @@ const spideyJSXFragment = (<>
     //     Click on the Vite and React logos to learn more
     //   </p>
         <>
+
+{/* <ExplodingBomb></ExplodingBomb> */}
 
 <LoginForm></LoginForm>
 
