@@ -15,6 +15,9 @@ import BirthdayTranslator from './components/BirthdayTranslator'
 import Weather from './components/Weather' 
 import LoginForm from './components/LoginForm'
 import ExplodingBomb from './components/ExplodingBomb'
+import Clock from './components/Clock'
+import ClockDisplay from './components/ClockDisplay'
+import ActivityFinder from './components/ActivityFinder'
 
 
 
@@ -98,6 +101,12 @@ const spideyJSXFragment = (<>
         <>
 
 {/* <ExplodingBomb></ExplodingBomb> */}
+
+{/* <Clock></Clock> */}
+
+<ActivityFinder></ActivityFinder>
+
+<ClockDisplay></ClockDisplay>
 
 <LoginForm></LoginForm>
 
