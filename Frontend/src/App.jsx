@@ -19,10 +19,7 @@ import Clock from './components/Clock'
 import ClockDisplay from './components/ClockDisplay'
 import ActivityFinder from './components/ActivityFinder'
 
-
-
 import { useState } from 'react'
-
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
