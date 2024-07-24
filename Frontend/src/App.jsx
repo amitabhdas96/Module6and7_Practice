@@ -2,6 +2,8 @@
 // first do npm install react-error-boundary
 import { ErrorBoundary } from 'react-error-boundary'
 import ErrorMessage from './components/ErrorMessage'
+import { useReducer } from "react";
+
 
 import PropsDisplayer from './components/PropsDisplayer' 
 import City from './components/City' 
@@ -18,6 +20,14 @@ import ExplodingBomb from './components/ExplodingBomb'
 import Clock from './components/Clock'
 import ClockDisplay from './components/ClockDisplay'
 import ActivityFinder from './components/ActivityFinder'
+import RefCounter from './components/RefCounter'
+import VideoPlayer from './components/VideoPlayer'
+import ReducerCounter from './components/ReducerCounter'
+import PostListReducer from './components/PostListReducer'
+import SubscribeForm from './components/SubscribeForm'
+import { UserProvider } from './components/UserContext'
+
+
 
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
@@ -97,9 +107,31 @@ const spideyJSXFragment = (<>
     //   </p>
         <>
 
+<UserProvider> {/* provider component is at top level */}
+ <ClockDisplay /> {/* so all children can use context data */}
+ <MoviesList /> {/* even if they have children of their own */}
+ <ActivityFinder />
+ <PostListReducer />
+ {/* logging in here can now set up current user everywhere */}
+ <LoginForm />
+ </UserProvider>
+
+
 {/* <ExplodingBomb></ExplodingBomb> */}
 
 {/* <Clock></Clock> */}
+
+
+{/* 
+<SubscribeForm></SubscribeForm>
+
+<PostListReducer></PostListReducer>
+
+<ReducerCounter></ReducerCounter>
+
+<VideoPlayer></VideoPlayer>
+
+<RefCounter></RefCounter>
 
 <ActivityFinder></ActivityFinder>
 
@@ -159,7 +191,7 @@ of New South Wales.</div>
 {/* Array prop value - uses curly braces */}
 <PropsDisplayer pets={["cat", "dog", "goldfish"]}/>
 {/* Variable prop values - uses curly braces */}
-<PropsDisplayer reactLogo={reactLogo} buttonCount={count}/> 
+{/* <PropsDisplayer reactLogo={reactLogo} buttonCount={count}/>  */}
 
 </>
 
